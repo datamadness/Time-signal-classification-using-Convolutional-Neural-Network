@@ -19,6 +19,7 @@ import random
 from scipy import signal
 import matplotlib.pyplot as plt
 from skimage.measure import block_reduce
+import math
 #%% PARAMETER SPECIFICATION
 eval_fraction = 0.25 #fraction of data for evaluation purposes
 
@@ -103,10 +104,11 @@ def signal_sfft(phase_data,plot = False):
     reducedt = t[0::4]
     
     if plot:
-        plt.pcolormesh(reducedt, reducedf, reducedZ, vmin=0, vmax=0.5)
+        plt.figure(figsize = (16, 10))
+        plt.pcolormesh(reducedt, reducedf, reducedZ, rasterized=True, linewidth=0, vmin=0, vmax=0.5)
         plt.title('STFT Magnitude Reduced')
         plt.ylabel('Frequency [Hz]')
-        plt.xlabel('Time [sec]')
+        plt.xlabel('Time [ms]')
         plt.show()
     return reducedZ
 
@@ -117,7 +119,7 @@ def generate_TFR(IDs, measurements_per_file, upscale, output_path):
     #Artificaially generate every x measurement
     generate_every = 4
     
-    numFiles = round(len(IDs) / measurements_per_file)
+    numFiles = math.ceil(len(IDs) / measurements_per_file)
     
     for file_id in range(numFiles):
         print('\n Creating file # %2d' %file_id)
