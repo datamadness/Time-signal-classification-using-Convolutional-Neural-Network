@@ -1,7 +1,7 @@
 # Time signal classification using Convolutional Neural Network
 TensorFlow python code for a Machine Learning project using Convolutional Neural Network.
 
-# Related Articles and Practical Examples
+## Related Articles and Practical Examples
 [Time signal classification using Convolutional Neural Network in TensorFlow - Part 1](https://datamadness.github.io/time-signal-CNN)
 [Time signal classification using Convolutional Neural Network in TensorFlow - Part 2](https://datamadness.github.io/time-signal-CNN-part2)
 
